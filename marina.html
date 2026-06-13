@@ -1,0 +1,136 @@
+<style>
+body {
+    background-color: #F5F1EA;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    color: #4A4A4A;
+    padding-top: 80px;
+    animation: pageShow 0.8s ease;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #4A4A4A;
+}
+
+p {
+    font-size: 22px;
+    color: #5A5A5A;
+    line-height: 1.6;
+}
+
+img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    animation: photoShow 1s ease;
+    margin: 30px 0;
+}
+
+div {
+    animation: textShow 1.5s ease;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pageShow {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes photoShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textShow {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<h1>Марина</h1>
+
+<img class="section" src="marina1.jpg">
+
+<div class="section">
+<p>
+Марина — мама двух дочерей и человек, который всегда знает, что происходит вокруг. Пока остальные только пытаются разобраться в ситуации, у неё уже есть план, запасной план и примерное понимание того, кто во всём виноват.
+</p>
+
+<p>
+При этом Марина остаётся одним из самых спокойных людей в компании. По крайней мере, внешне.
+</p>
+</div>
+
+<img class="section" src="marina2.jpg">
+
+<div class="section">
+<p>
+Марина — человек, который успевает заниматься семьёй, работой и при этом сохранять здравый смысл. Что само по себе заслуживает уважения, учитывая, что дома её каждый день ждёт Узбекский Маск со своими новыми идеями.
+</p>
+
+<p>
+Именно от Марины мир впервые узнал подробности некоторых приключений Узбекского Маска. В частности, истории о дверях появились не без её участия.
+</p>
+</div>
+
+<img class="section" src="marina3.jpg">
+
+<div class="section">
+<p>
+За годы совместной жизни с Узбекским Маском Марина научилась сохранять спокойствие практически в любой ситуации. Некоторые считают это жизненным опытом, другие — суперспособностью.
+</p>
+
+<p>
+Поэтому, если однажды будет учреждена награда за самое крепкое терпение, у Марины будут очень хорошие шансы на победу.
+</p>
+</div>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+function showSections() {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showSections);
+showSections();
+</script>

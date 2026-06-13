@@ -1,0 +1,105 @@
+<head>
+<title>Кто есть кто</title>
+</head>
+<style>
+body {
+    background-color: #F5F1EA;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    padding-top: 80px;
+    }
+h1 {
+    color: #4A4A4A;
+    margin-bottom: 50px;
+    font-size: 48px;
+font-weight: 300;
+letter-spacing: 3px;
+}
+button {
+background-color: #A8BBA3;
+color: white;
+border: none;
+border-radius: 20px;
+padding: 25px;
+width: 450px;
+font-size: 24px;
+margin: 15px;
+cursor: pointer;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+transition: 0.3s;
+font-weight: 500;
+}
+button:hover {
+background-color: #96A893;
+transform: translateY(-3px);
+}
+.final-btn {
+    background-color: #B8A5C9;
+}
+
+.final-btn:hover {
+    background-color: #A28FB8;
+}
+body {
+animation: pageShow 0.8s ease;
+}
+@keyframes pageShow {
+from {
+opacity: 0;
+transform: translateY(15px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+</style>
+<h1>Кто есть кто</h1> 
+<p>Нажмите на человека, чтобы узнать о нём больше</p>
+<button onclick="location.href='yun.html'">
+    Руслан Маск
+</button>
+
+<button onclick="location.href='tsoy.html'">
+    Садыр Жопаров
+</button>
+
+<button onclick="location.href='sasha.html'">
+    Просто Саша
+</button>
+
+<button onclick="location.href='marina.html'">
+    Марина
+</button>
+
+<button onclick="location.href='sveta.html'">
+    Светлана Пална
+</button>
+
+<button onclick="location.href='tanya.html'">
+    Татьяна Пална
+</button>
+<button class="final-btn" onclick="location.href='final.html'">
+    Заключение от автора
+</button>
+<script>
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const url = this.getAttribute("onclick")
+            .replace("location.href='", "")
+            .replace("'", "");
+
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = url;
+        }, 400);
+    });
+});
+</script>

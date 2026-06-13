@@ -1,0 +1,135 @@
+<style>
+body {
+    background-color: #F5F1EA;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    color: #4A4A4A;
+    padding-top: 80px;
+    animation: pageShow 0.8s ease;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #4A4A4A;
+}
+
+p {
+    font-size: 22px;
+    color: #5A5A5A;
+    line-height: 1.6;
+}
+
+img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    margin: 30px 0;
+}
+
+div {
+    animation: textShow 1.5s ease;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pageShow {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes photoShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textShow {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<h1>Просто Саша</h1>
+
+<img class="section" src="sasha1.jpg">
+
+<div class="section">
+<p>
+Александр, более известный как Просто Саша, относится к редкому типу людей, которые способны починить практически всё. Если что-то сломалось, Саша сначала посмотрит на проблему, потом на подручные материалы, а потом каким-то образом заставит это снова работать.
+</p>
+
+<p>
+Говорят, что из говна и палок ничего хорошего не получится. Саша считает это личным вызовом.
+</p>
+</div>
+
+<img class="section" src="sasha2.jpg">
+
+<div class="section">
+<p>
+Сколько лет Саше на самом деле, достоверно неизвестно. Однако сам он, как и Узбекский Маск, уверенно утверждает, что ему 18. Эта версия настолько активно продвигается обоими участниками клуба, что спорить уже практически бесполезно.
+</p>
+
+<p>
+Совпадение это или нет, но сторонников теории с каждым годом становится всё меньше.
+</p>
+</div>
+
+<img class="section" src="sasha3.jpg">
+
+<div class="section">
+<p>
+Саша никогда не жалуется на жизнь и не ворчит. Иногда кажется, что его вообще невозможно вывести из себя. Даже в самых странных ситуациях он умудряется сохранять хорошее настроение.
+</p>
+
+<p>
+Зато есть караоке. В этот момент спокойная жизнь окружающих заканчивается. Саша может петь до самого утра, а соседи начинают вспоминать, за какие грехи им послали такое испытание.
+</p>
+</div>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+function showSections() {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showSections);
+showSections();
+</script>

@@ -1,0 +1,136 @@
+<style>
+body {
+    background-color: #F5F1EA;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    color: #4A4A4A;
+    padding-top: 80px;
+    animation: pageShow 0.8s ease;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #4A4A4A;
+}
+
+p {
+    font-size: 22px;
+    color: #5A5A5A;
+    line-height: 1.6;
+}
+
+img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    animation: photoShow 1s ease;
+    margin: 30px 0;
+}
+
+div {
+    animation: textShow 1.5s ease;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pageShow {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes photoShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textShow {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<h1>Татьяна Эдуардовна</h1>
+
+<img class="section" src="tanya1.jpg">
+
+<div class="section">
+<p>
+Татьяна Эдуардовна — мама Серикбая и женщина, которая сумела вырастить троих сыновей и при этом сохранить здравый смысл. Уже одно это достижение заслуживает отдельной награды.
+</p>
+
+<p>
+За годы материнства Татьяна Эдуардовна научилась сохранять спокойствие практически в любой ситуации. В конце концов, после трёх сыновей человека уже сложно чем-либо удивить.
+</p>
+</div>
+
+<img class="section" src="tanya2.jpg">
+
+<div class="section">
+<p>
+В душе Татьяна Эдуардовна остаётся очень чувствительным и ранимым человеком. Поэтому иногда её могут задеть вещи, на которые другие даже не обратят внимания.
+</p>
+
+<p>
+Однако есть испытание, которое она всё-таки смогла преодолеть. Татьяна Эдуардовна одержала уверенную победу над климаксом и теперь может с гордостью сказать, что этот этап остался позади.
+</p>
+</div>
+
+<img class="section" src="tanya3.jpg">
+
+<div class="section">
+<p>
+Татьяна Эдуардовна также известна тем, что в будущем имеет все шансы получить ещё один важный статус — свекровь автора данного сайта.
+</p>
+
+<p>
+По этой причине количество шуток в её адрес было принято сократить до безопасного минимума. Всё-таки хорошие отношения нужно строить заранее.
+</p>
+</div>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+function showSections() {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showSections);
+showSections();
+</script>

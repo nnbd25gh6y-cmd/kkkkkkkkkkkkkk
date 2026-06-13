@@ -1,0 +1,121 @@
+<style>
+body {
+    background-color: #F5F1EA;
+    font-family: Segoe UI, sans-serif;
+    text-align: center;
+    color: #4A4A4A;
+    padding-top: 80px;
+    
+    animation: pageShow 0.8s ease;
+}
+h1 {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: #4A4A4A;
+}
+
+p {
+    font-size: 22px;
+    color: #5A5A5A;
+}
+@keyframes pageShow {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+img {
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    margin: 30px 0;
+}
+
+div {
+    animation: textShow 1.5s ease;
+     max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+@keyframes photoShow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes textShow {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+<h1>Юн Руслан Александрович</h1> 
+<img class="section" src="ruslan1.jpg">
+<div class="section">
+<p>
+Руслан Маск — директор компании по производству сумок, который в какой-то момент решил, что будущее за технологиями. С тех пор в его жизни появились IT, новые идеи и планы мирового масштаба. Именно поэтому обычный Руслан постепенно превратился в Руслана Маска.
+</p>
+<p>
+Возраст Руслана остаётся предметом научных споров. По одним данным ему около 35–36 лет. По другим данным, полученным непосредственно от Руслана, ему 18. Сам Руслан придерживается второй версии и менять её не собирается.
+</p>
+</div>
+<img class="section" src="ruslan2.jpg">
+<div class="section">
+<p>
+В обычной жизни Руслан производит впечатление серьёзного человека, но это впечатление может быть обманчивым. Друзья давно подозревают, что ему нужен психолог, однако пока что психологу, возможно, нужен Руслан.
+</p>
+<p>
+Особую осторожность рекомендуется соблюдать в моменты плохого настроения. По неподтверждённым данным, уровень его злости способен представлять опасность для ближайших дверей, мебели и спокойствия окружающих.
+</p>
+</div>
+<img class="section" src="ruslan3.jpg">
+<div class="section">
+<p>
+Руслан — счастливый муж, отец двух дочерей и человек, который может одновременно интересоваться технологиями будущего и переживать за совершенно незнакомого человека на улице. Если кто-то нуждается в помощи, шансы пройти мимо у Руслана примерно такие же, как шансы убедить его, что ему не 18 лет.
+</p>
+
+<p>
+Поэтому за образом «Руслана Маска» скрывается вполне хороший человек. Хотя в минуты особенно плохого настроения двери предпочитают лишний раз не привлекать к себе внимание.
+</p>
+</div>
+<script>
+const sections = document.querySelectorAll('.section');
+
+function showSections() {
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+
+        if (sectionTop < window.innerHeight - 100) {
+            section.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', showSections);
+showSections();
+</script>
