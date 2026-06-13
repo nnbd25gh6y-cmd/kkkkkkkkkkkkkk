@@ -42,6 +42,7 @@ transform: translateY(-3px);
 }
 body {
 animation: pageShow 0.8s ease;
+    transition: opacity 0.4s ease;
 }
 @keyframes pageShow {
 from {
@@ -53,9 +54,8 @@ opacity: 1;
 transform: translateY(0);
 }
 }
-.fade-out {
+body.fade-out {
     opacity: 0;
-    transition: opacity 0.4s ease;
 }
 </style>
 <h1>Кто есть кто</h1> 
@@ -87,6 +87,10 @@ transform: translateY(0);
     Заключение от автора
 </button>
 <script>
+window.addEventListener("pageshow", function() {
+    document.body.classList.remove("fade-out");
+});
+
 document.querySelectorAll("button").forEach(button => {
     button.addEventListener("click", function(e) {
         e.preventDefault();
