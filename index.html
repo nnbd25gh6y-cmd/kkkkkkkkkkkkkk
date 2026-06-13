@@ -87,15 +87,24 @@ body.fade-out {
     Заключение от автора
 </button>
 <script>
-let timer;
+let isGoingBack = false;
 
-window.addEventListener("pageshow", function() {
-    clearTimeout(timer);
+window.addEventListener("pageshow", function(event) {
     document.body.classList.remove("fade-out");
+
+    if (event.persisted) {
+        isGoingBack = true;
+    }
 });
 
 document.querySelectorAll("button").forEach(button => {
     button.addEventListener("click", function(e) {
+        if (isGoingBack) {
+            e.preventDefault();
+            isGoingBack = false;
+            return;
+        }
+
         e.preventDefault();
 
         const url = this.getAttribute("onclick")
@@ -104,7 +113,7 @@ document.querySelectorAll("button").forEach(button => {
 
         document.body.classList.add("fade-out");
 
-        timer = setTimeout(() => {
+        setTimeout(() => {
             window.location.href = url;
         }, 400);
     });
